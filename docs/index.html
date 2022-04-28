@@ -1016,7 +1016,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <li data-md>
         <p><dfn class="dfn-paneled" data-dfn-for="service worker" data-dfn-type="dfn" data-export id="dfn-functional-events">Functional events</dfn>: <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-global-scope-fetch-event" id="ref-for-service-worker-global-scope-fetch-event">fetch</a></code> and the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event" id="ref-for-concept-event①">events</a> defined by other specifications that <a href="#extensibility">extend</a> the Service Workers specification. (See the <a href="#execution-context-events">list</a>.)</p>
        <li data-md>
-        <p><code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message">message</a></code> and <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-messageerror" id="ref-for-eventdef-serviceworkerglobalscope-messageerror">messageerror</a></code>.</p>
+        <p><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event">message</a></code> and <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event">messageerror</a></code>.</p>
       </ul>
      </section>
     </section>
@@ -1301,7 +1301,7 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
             <p>Let <var>destination</var> be the <code class="idl"><a data-link-type="idl" href="#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope②">ServiceWorkerGlobalScope</a></code> object associated with <var>serviceWorker</var>.</p>
            <li data-md>
             <p>Let <var>deserializeRecord</var> be <a data-link-type="abstract-op" href="https://html.spec.whatwg.org/multipage/structured-data.html#structureddeserializewithtransfer" id="ref-for-structureddeserializewithtransfer">StructuredDeserializeWithTransfer</a>(<var>serializeWithTransferResult</var>, <var>destination</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-global-object-realm" id="ref-for-concept-global-object-realm">Realm</a>).</p>
-            <p>If this throws an exception, let <var>e</var> be the result of <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-create" id="ref-for-concept-event-create">creating an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event">messageerror</a></code>, using <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent">ExtendableMessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-origin" id="ref-for-dom-extendablemessageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-source" id="ref-for-dom-extendablemessageevent-source">source</a></code> attribute initialized to <var>source</var>.</p>
+            <p>If this throws an exception, let <var>e</var> be the result of <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-create" id="ref-for-concept-event-create">creating an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event①">messageerror</a></code>, using <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent">ExtendableMessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-origin" id="ref-for-dom-extendablemessageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-source" id="ref-for-dom-extendablemessageevent-source">source</a></code> attribute initialized to <var>source</var>.</p>
            <li data-md>
             <p>Else:</p>
             <ol>
@@ -1310,7 +1310,7 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
              <li data-md>
               <p>Let <var>newPorts</var> be a new <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-frozen-array-type" id="ref-for-dfn-frozen-array-type">frozen array</a> consisting of all <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/web-messaging.html#messageport" id="ref-for-messageport">MessagePort</a></code> objects in <var>deserializeRecord</var>.[[TransferredValues]], if any, maintaining their relative order.</p>
              <li data-md>
-              <p>Let <var>e</var> be the result of <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-create" id="ref-for-concept-event-create①">creating an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message①">message</a></code>, using <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent①">ExtendableMessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-origin" id="ref-for-dom-extendablemessageevent-origin①">origin</a></code> attribute initialized to <var>origin</var>, the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-source" id="ref-for-dom-extendablemessageevent-source①">source</a></code> attribute initialized to <var>source</var>, the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-data" id="ref-for-dom-extendablemessageevent-data">data</a></code> attribute initialized to <var>messageClone</var>, and the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-ports" id="ref-for-dom-extendablemessageevent-ports">ports</a></code> attribute initialized to <var>newPorts</var>.</p>
+              <p>Let <var>e</var> be the result of <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-create" id="ref-for-concept-event-create①">creating an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message">message</a></code>, using <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent①">ExtendableMessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-origin" id="ref-for-dom-extendablemessageevent-origin①">origin</a></code> attribute initialized to <var>origin</var>, the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-source" id="ref-for-dom-extendablemessageevent-source①">source</a></code> attribute initialized to <var>source</var>, the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-data" id="ref-for-dom-extendablemessageevent-data">data</a></code> attribute initialized to <var>messageClone</var>, and the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-ports" id="ref-for-dom-extendablemessageevent-ports">ports</a></code> attribute initialized to <var>newPorts</var>.</p>
             </ol>
            <li data-md>
             <p><a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-dispatch" id="ref-for-concept-event-dispatch②">Dispatch</a> <var>e</var> at <var>destination</var>.</p>
@@ -2015,10 +2015,10 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
            </div>
           </div>
           <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerContainer" data-dfn-type="attribute" data-export id="dom-serviceworkercontainer-onmessage"><code>onmessage</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event">message</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event①">message</a></code>
         <tr>
          <td><dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerContainer" data-dfn-type="attribute" data-export id="dom-serviceworkercontainer-onmessageerror"><code>onmessageerror</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event①">messageerror</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event②">messageerror</a></code>
       </table>
       <p>The first time the <code class="idl"><a data-link-type="idl" href="#dom-serviceworkercontainer-onmessage" id="ref-for-dom-serviceworkercontainer-onmessage①">onmessage</a></code> setter steps are performed, enable <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑧">this</a>'s <a data-link-type="dfn" href="#dfn-client-message-queue" id="ref-for-dfn-client-message-queue④">client message queue</a>.</p>
      </section>
@@ -2496,10 +2496,10 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
            </div>
           </div>
           <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-onmessage"><code>onmessage</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message②">message</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message①">message</a></code>
         <tr>
          <td><dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-onmessageerror"><code>onmessageerror</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event②">messageerror</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event③">messageerror</a></code>
       </table>
      </section>
     </section>
@@ -2729,7 +2729,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
             <p>Let <var>source</var> be the result of <a data-link-type="dfn" href="#get-the-service-worker-object" id="ref-for-get-the-service-worker-object⑥">getting the service worker object</a> that represents <var>contextObject</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global" id="ref-for-concept-relevant-global②">relevant global object</a>'s <a data-link-type="dfn" href="#serviceworkerglobalscope-service-worker" id="ref-for-serviceworkerglobalscope-service-worker⑥">service worker</a> in <var>targetClient</var>.</p>
            <li data-md>
             <p>Let <var>deserializeRecord</var> be <a data-link-type="abstract-op" href="https://html.spec.whatwg.org/multipage/structured-data.html#structureddeserializewithtransfer" id="ref-for-structureddeserializewithtransfer①">StructuredDeserializeWithTransfer</a>(<var>serializeWithTransferResult</var>, <var>destination</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-realm" id="ref-for-concept-relevant-realm①">relevant Realm</a>).</p>
-            <p>If this throws an exception, catch it, <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-fire" id="ref-for-concept-event-fire">fire an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-messageerror" id="ref-for-eventdef-serviceworkerglobalscope-messageerror①">messageerror</a></code> at <var>destination</var>, using <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#messageevent" id="ref-for-messageevent">MessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-origin" id="ref-for-dom-messageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-source" id="ref-for-dom-messageevent-source">source</a></code> attribute initialized to <var>source</var>, and then abort these steps.</p>
+            <p>If this throws an exception, catch it, <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-fire" id="ref-for-concept-event-fire">fire an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event④">messageerror</a></code> at <var>destination</var>, using <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#messageevent" id="ref-for-messageevent">MessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-origin" id="ref-for-dom-messageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-source" id="ref-for-dom-messageevent-source">source</a></code> attribute initialized to <var>source</var>, and then abort these steps.</p>
            <li data-md>
             <p>Let <var>messageClone</var> be <var>deserializeRecord</var>.[[Deserialized]].</p>
            <li data-md>
@@ -3714,7 +3714,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
   <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#idl-sequence" id="ref-for-idl-sequence②"><c- b>sequence</c-></a>&lt;<a data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/web-messaging.html#messageport" id="ref-for-messageport⑤"><c- n>MessagePort</c-></a>> <dfn class="idl-code" data-default="[]" data-dfn-for="ExtendableMessageEventInit" data-dfn-type="dict-member" data-export data-type="sequence<MessagePort> " id="dom-extendablemessageeventinit-ports"><code><c- g>ports</c-></code><a class="self-link" href="#dom-extendablemessageeventinit-ports"></a></dfn> = [];
 };
 </pre>
-     <p><a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦③">Service workers</a> define the <a class="idl-code" data-link-type="method" href="#dom-extendableevent-waituntil" id="ref-for-dom-extendableevent-waituntil⑤">extendable</a> <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event①">message</a></code> event to allow extending the lifetime of the event. For the <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event②">message</a></code> event, <a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦④">service workers</a> use the <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent③">ExtendableMessageEvent</a></code> interface which extends the <code class="idl"><a data-link-type="idl" href="#extendableevent" id="ref-for-extendableevent①②">ExtendableEvent</a></code> interface.</p>
+     <p><a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦③">Service workers</a> define the <a class="idl-code" data-link-type="method" href="#dom-extendableevent-waituntil" id="ref-for-dom-extendableevent-waituntil⑤">extendable</a> <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event②">message</a></code> event to allow extending the lifetime of the event. For the <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event③">message</a></code> event, <a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦④">service workers</a> use the <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent③">ExtendableMessageEvent</a></code> interface which extends the <code class="idl"><a data-link-type="idl" href="#extendableevent" id="ref-for-extendableevent①②">ExtendableEvent</a></code> interface.</p>
      <section>
       <h4 class="heading settled" data-level="4.6.1" id="extendablemessage-event-data"><span class="secno">4.6.1. </span><span class="content"><code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-data" id="ref-for-dom-extendablemessageevent-data②">event.data</a></code></span><a class="self-link" href="#extendablemessage-event-data"></a></h4>
       <div class="mdn-anno wrapped after">
@@ -3912,7 +3912,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <td>Legacy
         <td>When it receives a message.
        <tr>
-        <td><dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="event" data-export id="eventdef-serviceworkerglobalscope-messageerror"><code>messageerror</code></dfn>
+        <td><dfn class="idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="event" data-export id="eventdef-serviceworkerglobalscope-messageerror"><code>messageerror</code><a class="self-link" href="#eventdef-serviceworkerglobalscope-messageerror"></a></dfn>
         <td><code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#messageevent" id="ref-for-messageevent②">MessageEvent</a></code>
         <td>Legacy
         <td>When it was sent a message that cannot be deserialized.
@@ -12063,16 +12063,19 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/foo/ba
   <aside class="dfn-panel" data-for="service-worker-container-message-event">
    <b><a href="#service-worker-container-message-event">#service-worker-container-message-event</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-service-worker-container-message-event">3.4.7. Event handlers</a>
-    <li><a href="#ref-for-service-worker-container-message-event①">4.6. ExtendableMessageEvent</a> <a href="#ref-for-service-worker-container-message-event②">(2)</a>
+    <li><a href="#ref-for-service-worker-container-message-event">2.1.2. Events</a>
+    <li><a href="#ref-for-service-worker-container-message-event①">3.4.7. Event handlers</a>
+    <li><a href="#ref-for-service-worker-container-message-event②">4.6. ExtendableMessageEvent</a> <a href="#ref-for-service-worker-container-message-event③">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-worker-container-messageerror-event">
    <b><a href="#service-worker-container-messageerror-event">#service-worker-container-messageerror-event</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-service-worker-container-messageerror-event">3.1.5. postMessage(message, options)</a>
-    <li><a href="#ref-for-service-worker-container-messageerror-event①">3.4.7. Event handlers</a>
-    <li><a href="#ref-for-service-worker-container-messageerror-event②">4.1.5. Event handlers</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event">2.1.2. Events</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event①">3.1.5. postMessage(message, options)</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event②">3.4.7. Event handlers</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event③">4.1.5. Event handlers</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event④">4.2.6. postMessage(message, options)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="navigationpreloadmanager">
@@ -12732,16 +12735,8 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/foo/ba
   <aside class="dfn-panel" data-for="eventdef-serviceworkerglobalscope-message">
    <b><a href="#eventdef-serviceworkerglobalscope-message">#eventdef-serviceworkerglobalscope-message</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message">2.1.2. Events</a>
-    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message①">3.1.5. postMessage(message, options)</a>
-    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message②">4.1.5. Event handlers</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="eventdef-serviceworkerglobalscope-messageerror">
-   <b><a href="#eventdef-serviceworkerglobalscope-messageerror">#eventdef-serviceworkerglobalscope-messageerror</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-messageerror">2.1.2. Events</a>
-    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-messageerror①">4.2.6. postMessage(message, options)</a>
+    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message">3.1.5. postMessage(message, options)</a>
+    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message①">4.1.5. Event handlers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dfn-request-response-list">
