@@ -6,9 +6,9 @@
   <meta content="ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
+  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
   <link href="https://www.w3.org/TR/service-workers/" rel="canonical">
-  <meta content="9c02deb4d991612addef1c6f1308bafce6594c68" name="document-revision">
+  <meta content="adb4ef0a8905195e9a366565fa81e52293f0c941" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -646,7 +646,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Service Workers Nightly</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2022-04-28">28 April 2022</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2022-06-14">14 June 2022</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -659,10 +659,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <dd><a href="https://github.com/w3c/ServiceWorker/issues/">GitHub</a>
       <dd><a href="#issues-index">Inline In Spec</a>
       <dt class="editor">Editors:
+      <dd class="editor p-author h-card vcard" data-editor-id="76394"><a class="p-name fn u-email email" href="mailto:jakearchibald@chromium.org">Jake Archibald</a> (<span class="p-org org">Google</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="72440"><a class="p-name fn u-email email" href="mailto:mek@chromium.org">Marijn Kruisselbrink</a> (<span class="p-org org">Google</span>)
+      <dt class="editor">Former Editors:
       <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:slightlyoff@chromium.org">Alex Russell</a> (<span class="p-org org">Google</span>)
       <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:jungkee.song@microsoft.com">Jungkee Song</a> (<span class="p-org org">Microsoft‚ represented Samsung until April 2018</span>)
-      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:jakearchibald@chromium.org">Jake Archibald</a> (<span class="p-org org">Google</span>)
-      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mek@chromium.org">Marijn Kruisselbrink</a> (<span class="p-org org">Google</span>)
       <dt>Tests:
       <dd><a href="https://github.com/web-platform-tests/wpt/tree/master/service-workers">web-platform-tests service-workers/</a> (<a href="https://github.com/web-platform-tests/wpt/labels/service-workers">ongoing work</a>)
      </dl>
@@ -1016,7 +1017,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <li data-md>
         <p><dfn class="dfn-paneled" data-dfn-for="service worker" data-dfn-type="dfn" data-export id="dfn-functional-events">Functional events</dfn>: <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-global-scope-fetch-event" id="ref-for-service-worker-global-scope-fetch-event">fetch</a></code> and the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event" id="ref-for-concept-event①">events</a> defined by other specifications that <a href="#extensibility">extend</a> the Service Workers specification. (See the <a href="#execution-context-events">list</a>.)</p>
        <li data-md>
-        <p><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event">message</a></code> and <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event">messageerror</a></code>.</p>
+        <p><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event">message</a></code> and <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-messageerror" id="ref-for-eventdef-serviceworkerglobalscope-messageerror">messageerror</a></code>.</p>
       </ul>
      </section>
     </section>
@@ -1301,7 +1302,7 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
             <p>Let <var>destination</var> be the <code class="idl"><a data-link-type="idl" href="#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope②">ServiceWorkerGlobalScope</a></code> object associated with <var>serviceWorker</var>.</p>
            <li data-md>
             <p>Let <var>deserializeRecord</var> be <a data-link-type="abstract-op" href="https://html.spec.whatwg.org/multipage/structured-data.html#structureddeserializewithtransfer" id="ref-for-structureddeserializewithtransfer">StructuredDeserializeWithTransfer</a>(<var>serializeWithTransferResult</var>, <var>destination</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-global-object-realm" id="ref-for-concept-global-object-realm">Realm</a>).</p>
-            <p>If this throws an exception, let <var>e</var> be the result of <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-create" id="ref-for-concept-event-create">creating an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event①">messageerror</a></code>, using <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent">ExtendableMessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-origin" id="ref-for-dom-extendablemessageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-source" id="ref-for-dom-extendablemessageevent-source">source</a></code> attribute initialized to <var>source</var>.</p>
+            <p>If this throws an exception, let <var>e</var> be the result of <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-create" id="ref-for-concept-event-create">creating an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-messageerror" id="ref-for-eventdef-serviceworkerglobalscope-messageerror①">messageerror</a></code>, using <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent">ExtendableMessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-origin" id="ref-for-dom-extendablemessageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-source" id="ref-for-dom-extendablemessageevent-source">source</a></code> attribute initialized to <var>source</var>.</p>
            <li data-md>
             <p>Else:</p>
             <ol>
@@ -1500,13 +1501,13 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/navigationPreload" title="The navigationPreload read-only property of the ServiceWorkerRegistration interface returns the NavigationPreloadManager associated with the current service worker registration.">ServiceWorkerRegistration/navigationPreload</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>99+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>46+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>17+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>99+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
         </div>
        </div>
       </div>
@@ -2018,7 +2019,7 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
          <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event①">message</a></code>
         <tr>
          <td><dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerContainer" data-dfn-type="attribute" data-export id="dom-serviceworkercontainer-onmessageerror"><code>onmessageerror</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event②">messageerror</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event">messageerror</a></code>
       </table>
       <p>The first time the <code class="idl"><a data-link-type="idl" href="#dom-serviceworkercontainer-onmessage" id="ref-for-dom-serviceworkercontainer-onmessage①">onmessage</a></code> setter steps are performed, enable <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑧">this</a>'s <a data-link-type="dfn" href="#dfn-client-message-queue" id="ref-for-dfn-client-message-queue④">client message queue</a>.</p>
      </section>
@@ -2082,13 +2083,13 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
       <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigationPreloadManager" title="The NavigationPreloadManager interface of the Service Worker API provides methods for managing the preloading of resources in parallel with service worker bootup.">NavigationPreloadManager</a></p>
       <p class="all-engines-text">In all current engines.</p>
       <div class="support">
-       <span class="firefox yes"><span>Firefox</span><span>preview+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
+       <span class="firefox yes"><span>Firefox</span><span>99+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
        <hr>
        <span class="opera yes"><span>Opera</span><span>46+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
        <hr>
        <span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie no"><span>IE</span><span>None</span></span>
        <hr>
-       <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+       <span class="firefox_android yes"><span>Firefox for Android</span><span>99+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
       </div>
      </div>
     </div>
@@ -2113,13 +2114,13 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigationPreloadManager/enable" title="The enable() method of the NavigationPreloadManager interface is used to enable preloading of resources managed by the service worker. It returns a promise that resolves with undefined.">NavigationPreloadManager/enable</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>preview+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>99+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>46+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>99+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
        </div>
       </div>
      </div>
@@ -2149,13 +2150,13 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigationPreloadManager/disable" title="The disable() method of the NavigationPreloadManager interface halts the automatic preloading of service-worker-managed resources previously started using enable() It returns a promise that resolves with undefined.">NavigationPreloadManager/disable</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>preview+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>99+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>46+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>99+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
        </div>
       </div>
      </div>
@@ -2185,13 +2186,13 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigationPreloadManager/setHeaderValue" title="The setHeaderValue() method of the NavigationPreloadManager interface sets the value of the Service-Worker-Navigation-Preload header that will be sent with requests resulting from a fetch() operation made during service worker navigation preloading. It returns an empty Promise that resolves with undefined.">NavigationPreloadManager/setHeaderValue</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>preview+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>99+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>46+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>99+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
        </div>
       </div>
      </div>
@@ -2221,13 +2222,13 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/servic
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigationPreloadManager/getState" title="The getState() method of the NavigationPreloadManager interface returns a Promise that resolves to an object with properties that indicate whether preload is enabled and what value will be sent in the Service-Worker-Navigation-Preload HTTP header.">NavigationPreloadManager/getState</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>preview+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>99+</span></span><span class="safari yes"><span>Safari</span><span>15.4+</span></span><span class="chrome yes"><span>Chrome</span><span>59+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>46+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>99+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>15.4+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>59+</span></span><span class="webview_android yes"><span>Android WebView</span><span>59+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>7.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
        </div>
       </div>
      </div>
@@ -2496,10 +2497,10 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
            </div>
           </div>
           <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-onmessage"><code>onmessage</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message①">message</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event②">message</a></code>
         <tr>
          <td><dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-onmessageerror"><code>onmessageerror</code></dfn>
-         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event③">messageerror</a></code>
+         <td><code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-messageerror" id="ref-for-eventdef-serviceworkerglobalscope-messageerror②">messageerror</a></code>
       </table>
      </section>
     </section>
@@ -2687,13 +2688,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage" title="The postMessage() method of the Client interface allows a service worker to send a message to a client (a Window, Worker, or SharedWorker). The message is received in the &quot;message&quot; event on navigator.serviceWorker.">Client/postMessage</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>45+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
          <hr>
-         <span class="opera yes"><span>Opera</span><span>32+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+         <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>17+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>45+</span></span><span class="webview_android yes"><span>Android WebView</span><span>45+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>5.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>32+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
         </div>
        </div>
       </div>
@@ -2729,7 +2730,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
             <p>Let <var>source</var> be the result of <a data-link-type="dfn" href="#get-the-service-worker-object" id="ref-for-get-the-service-worker-object⑥">getting the service worker object</a> that represents <var>contextObject</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global" id="ref-for-concept-relevant-global②">relevant global object</a>'s <a data-link-type="dfn" href="#serviceworkerglobalscope-service-worker" id="ref-for-serviceworkerglobalscope-service-worker⑥">service worker</a> in <var>targetClient</var>.</p>
            <li data-md>
             <p>Let <var>deserializeRecord</var> be <a data-link-type="abstract-op" href="https://html.spec.whatwg.org/multipage/structured-data.html#structureddeserializewithtransfer" id="ref-for-structureddeserializewithtransfer①">StructuredDeserializeWithTransfer</a>(<var>serializeWithTransferResult</var>, <var>destination</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-realm" id="ref-for-concept-relevant-realm①">relevant Realm</a>).</p>
-            <p>If this throws an exception, catch it, <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-fire" id="ref-for-concept-event-fire">fire an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event④">messageerror</a></code> at <var>destination</var>, using <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#messageevent" id="ref-for-messageevent">MessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-origin" id="ref-for-dom-messageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-source" id="ref-for-dom-messageevent-source">source</a></code> attribute initialized to <var>source</var>, and then abort these steps.</p>
+            <p>If this throws an exception, catch it, <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-fire" id="ref-for-concept-event-fire">fire an event</a> named <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-messageerror-event" id="ref-for-service-worker-container-messageerror-event①">messageerror</a></code> at <var>destination</var>, using <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#messageevent" id="ref-for-messageevent">MessageEvent</a></code>, with the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-origin" id="ref-for-dom-messageevent-origin">origin</a></code> attribute initialized to <var>origin</var> and the <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#dom-messageevent-source" id="ref-for-dom-messageevent-source">source</a></code> attribute initialized to <var>source</var>, and then abort these steps.</p>
            <li data-md>
             <p>Let <var>messageClone</var> be <var>deserializeRecord</var>.[[Deserialized]].</p>
            <li data-md>
@@ -2994,13 +2995,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients/matchAll" title="The matchAll() method of the Clients interface returns a Promise for a list of service worker Client objects. Include the options parameter to return all service worker clients whose origin is the same as the associated service worker&apos;s origin. If options are not included, the method returns only the service worker clients controlled by the service worker.">Clients/matchAll</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>42+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>54+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>42+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>29+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>17+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>42+</span></span><span class="webview_android yes"><span>Android WebView</span><span>42+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>29+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>54+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>42+</span></span><span class="webview_android yes"><span>Android WebView</span><span>42+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>29+</span></span>
         </div>
        </div>
       </div>
@@ -3126,13 +3127,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients/openWindow" title="The openWindow() method of the Clients interface creates a new top level browsing context and loads a given URL. If the calling script doesn&apos;t have permission to show popups, openWindow() will throw an InvalidAccessError.">Clients/openWindow</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>45+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>45+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>51+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>38+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
-         <span class="edge yes"><span>Edge (Legacy)</span><span>17+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+         <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>45+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>41+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>45+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>51+</span></span><span class="webview_android yes"><span>Android WebView</span><span>51+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>5.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>41+</span></span>
         </div>
        </div>
       </div>
@@ -3480,17 +3481,18 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
      <section>
       <h4 class="heading settled" data-level="4.5.4" id="fetch-event-resultingclientid"><span class="secno">4.5.4. </span><span class="content"><code class="idl"><a data-link-type="idl" href="#dom-fetchevent-resultingclientid" id="ref-for-dom-fetchevent-resultingclientid①">event.resultingClientId</a></code></span><a class="self-link" href="#fetch-event-resultingclientid"></a></h4>
       <div class="mdn-anno wrapped after">
-       <button class="mdn-anno-btn"><span>MDN</span></button>
+       <button class="mdn-anno-btn"><b class="all-engines-flag" title="This feature is in all current engines.">✔</b><span>MDN</span></button>
        <div class="feature">
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/resultingClientId" title="The resultingClientId read-only property of the FetchEvent interface is the id of the client that replaces the previous client during a page navigation.">FetchEvent/resultingClientId</a></p>
+        <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>65+</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>72+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>65+</span></span><span class="safari yes"><span>Safari</span><span>16+</span></span><span class="chrome yes"><span>Chrome</span><span>72+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>60+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>65+</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>72+</span></span><span class="webview_android yes"><span>Android WebView</span><span>72+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>11.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>50+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>65+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>16+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>72+</span></span><span class="webview_android yes"><span>Android WebView</span><span>72+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>11.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>50+</span></span>
         </div>
        </div>
       </div>
@@ -3683,7 +3685,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
      <div class="mdn-anno wrapped">
       <button class="mdn-anno-btn"><b class="all-engines-flag" title="This feature is in all current engines.">✔</b><span>MDN</span></button>
       <div class="feature">
-       <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableMessageEvent/ExtendableMessageEvent" title="The ExtendableMessageEvent() constructor creates a new ExtendableMessageEvent object instance.">ExtendableMessageEvent/ExtendableMessageEvent</a></p>
+       <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableMessageEvent/ExtendableMessageEvent" title="The ExtendableMessageEvent() constructor creates a new ExtendableMessageEvent object.">ExtendableMessageEvent/ExtendableMessageEvent</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>51+</span></span>
@@ -3714,7 +3716,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
   <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#idl-sequence" id="ref-for-idl-sequence②"><c- b>sequence</c-></a>&lt;<a data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/web-messaging.html#messageport" id="ref-for-messageport⑤"><c- n>MessagePort</c-></a>> <dfn class="idl-code" data-default="[]" data-dfn-for="ExtendableMessageEventInit" data-dfn-type="dict-member" data-export data-type="sequence<MessagePort> " id="dom-extendablemessageeventinit-ports"><code><c- g>ports</c-></code><a class="self-link" href="#dom-extendablemessageeventinit-ports"></a></dfn> = [];
 };
 </pre>
-     <p><a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦③">Service workers</a> define the <a class="idl-code" data-link-type="method" href="#dom-extendableevent-waituntil" id="ref-for-dom-extendableevent-waituntil⑤">extendable</a> <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event②">message</a></code> event to allow extending the lifetime of the event. For the <code class="idl"><a class="idl-code" data-link-type="event" href="#service-worker-container-message-event" id="ref-for-service-worker-container-message-event③">message</a></code> event, <a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦④">service workers</a> use the <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent③">ExtendableMessageEvent</a></code> interface which extends the <code class="idl"><a data-link-type="idl" href="#extendableevent" id="ref-for-extendableevent①②">ExtendableEvent</a></code> interface.</p>
+     <p><a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦③">Service workers</a> define the <a class="idl-code" data-link-type="method" href="#dom-extendableevent-waituntil" id="ref-for-dom-extendableevent-waituntil⑤">extendable</a> <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message①">message</a></code> event to allow extending the lifetime of the event. For the <code class="idl"><a class="idl-code" data-link-type="event" href="#eventdef-serviceworkerglobalscope-message" id="ref-for-eventdef-serviceworkerglobalscope-message②">message</a></code> event, <a data-link-type="dfn" href="#dfn-service-worker" id="ref-for-dfn-service-worker⑦④">service workers</a> use the <code class="idl"><a data-link-type="idl" href="#extendablemessageevent" id="ref-for-extendablemessageevent③">ExtendableMessageEvent</a></code> interface which extends the <code class="idl"><a data-link-type="idl" href="#extendableevent" id="ref-for-extendableevent①②">ExtendableEvent</a></code> interface.</p>
      <section>
       <h4 class="heading settled" data-level="4.6.1" id="extendablemessage-event-data"><span class="secno">4.6.1. </span><span class="content"><code class="idl"><a data-link-type="idl" href="#dom-extendablemessageevent-data" id="ref-for-dom-extendablemessageevent-data②">event.data</a></code></span><a class="self-link" href="#extendablemessage-event-data"></a></h4>
       <div class="mdn-anno wrapped after">
@@ -3912,7 +3914,7 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <td>Legacy
         <td>When it receives a message.
        <tr>
-        <td><dfn class="idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="event" data-export id="eventdef-serviceworkerglobalscope-messageerror"><code>messageerror</code><a class="self-link" href="#eventdef-serviceworkerglobalscope-messageerror"></a></dfn>
+        <td><dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="event" data-export id="eventdef-serviceworkerglobalscope-messageerror"><code>messageerror</code></dfn>
         <td><code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/comms.html#messageevent" id="ref-for-messageevent②">MessageEvent</a></code>
         <td>Legacy
         <td>When it was sent a message that cannot be deserialized.
@@ -3942,13 +3944,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/caches" title="The global caches read-only property returns the CacheStorage object associated with the current context. This object enables functionality such as storing assets for offline use, and generating custom responses to requests.">caches</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>42+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android yes"><span>Firefox for Android</span><span>42+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
        </div>
       </div>
      </div>
@@ -3969,13 +3971,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache" title="The Cache interface provides a persistent storage mechanism for Request / Response object pairs that are cached in long lived memory. How long a Cache object lives is browser dependent, but a single origin&apos;s scripts can typically rely on the presence of a previously populated Cache object. Note that the Cache interface is exposed to windowed scopes as well as workers. You don&apos;t have to use it in conjunction with service workers, even though it is defined in the service worker spec.">Cache</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
        </div>
       </div>
      </div>
@@ -4016,13 +4018,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match" title="The match() method of the Cache interface returns a Promise that resolves to the Response associated with the first matching request in the Cache object. If no match is found, the Promise resolves to undefined.">Cache/match</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>30+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
         </div>
        </div>
       </div>
@@ -4072,13 +4074,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/matchAll" title="The matchAll() method of the Cache interface returns a Promise that resolves to an array of all matching responses in the Cache object.">Cache/matchAll</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>47+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>47+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>34+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>47+</span></span><span class="webview_android yes"><span>Android WebView</span><span>47+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>5.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>34+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>47+</span></span><span class="webview_android yes"><span>Android WebView</span><span>47+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>5.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>34+</span></span>
         </div>
        </div>
       </div>
@@ -4168,13 +4170,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/add" title="The add() method of the Cache interface takes a URL, retrieves it, and adds the resulting response object to the given cache.">Cache/add</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>44+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>44+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>31+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>44+</span></span><span class="webview_android yes"><span>Android WebView</span><span>44+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>32+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>44+</span></span><span class="webview_android yes"><span>Android WebView</span><span>44+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>32+</span></span>
         </div>
        </div>
       </div>
@@ -4196,13 +4198,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll" title="The addAll() method of the Cache interface takes an array of URLs, retrieves them, and adds the resulting response objects to the given cache. The request objects created during retrieval become keys to the stored response operations.">Cache/addAll</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>46+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>46+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>33+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>46+</span></span><span class="webview_android yes"><span>Android WebView</span><span>46+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>5.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>33+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>46+</span></span><span class="webview_android yes"><span>Android WebView</span><span>46+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>5.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>33+</span></span>
         </div>
        </div>
       </div>
@@ -4343,13 +4345,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/put" title="The put() method of the Cache interface allows key/value pairs to be added to the current Cache object.">Cache/put</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>30+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
         </div>
        </div>
       </div>
@@ -4448,13 +4450,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete" title="The delete() method of the Cache interface finds the Cache entry whose key is the request, and if found, deletes the Cache entry and returns a Promise that resolves to true. If no Cache entry is found, it resolves to false.">Cache/delete</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>30+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
         </div>
        </div>
       </div>
@@ -4526,13 +4528,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/keys" title="The keys() method of the Cache interface returns a Promise that resolves to an array ofRequest objects representing the keys of the Cache.">Cache/keys</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>39+</span></span><span class="safari yes"><span>Safari</span><span>11+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>43+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>30+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>39+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>43+</span></span><span class="webview_android yes"><span>Android WebView</span><span>43+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>30+</span></span>
         </div>
        </div>
       </div>
@@ -4617,13 +4619,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage" title="The CacheStorage interface represents the storage for Cache objects.">CacheStorage</a></p>
        <p class="all-engines-text">In all current engines.</p>
        <div class="support">
-        <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+        <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
         <hr>
         <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
         <hr>
         <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
         <hr>
-        <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+        <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
        </div>
       </div>
      </div>
@@ -4651,13 +4653,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/match" title="The match() method of the CacheStorage interface checks if a given Request or URL string is a key for a stored Response. This method returns a Promise for a Response, or a Promise which resolves to undefined if no match is found.">CacheStorage/match</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>54+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>54+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>41+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>54+</span></span><span class="webview_android yes"><span>Android WebView</span><span>54+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>6.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>41+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>54+</span></span><span class="webview_android yes"><span>Android WebView</span><span>54+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>6.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>41+</span></span>
         </div>
        </div>
       </div>
@@ -4715,13 +4717,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/has" title="The has() method of the CacheStorage interface returns a Promise that resolves to true if a Cache object matches the cacheName.">CacheStorage/has</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
         </div>
        </div>
       </div>
@@ -4753,13 +4755,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open" title="The open() method of the CacheStorage interface returns a Promise that resolves to the Cache object matching the cacheName.">CacheStorage/open</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
         </div>
        </div>
       </div>
@@ -4801,13 +4803,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/delete" title="The delete() method of the CacheStorage interface finds the Cache object matching the cacheName, and if found, deletes the Cache object and returns a Promise that resolves to true. If no Cache object is found, it resolves to false.">CacheStorage/delete</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
         </div>
        </div>
       </div>
@@ -4848,13 +4850,13 @@ self<c- p>.</c->addEventListener<c- p>(</c-><c- u>"fetch"</c-><c- p>,</c-> event
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/keys" title="The keys() method of the CacheStorage interface returns a Promise that will resolve with an array containing strings corresponding to all of the named Cache objects tracked by the CacheStorage object in the order they were created. Use this method to iterate over a list of all Cache objects.">CacheStorage/keys</a></p>
         <p class="all-engines-text">In all current engines.</p>
         <div class="support">
-         <span class="firefox yes"><span>Firefox</span><span>44+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
+         <span class="firefox yes"><span>Firefox</span><span>41+</span></span><span class="safari yes"><span>Safari</span><span>11.1+</span></span><span class="chrome yes"><span>Chrome</span><span>40+</span></span>
          <hr>
          <span class="opera yes"><span>Opera</span><span>27+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
          <hr>
          <span class="edge yes"><span>Edge (Legacy)</span><span>16+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
          <hr>
-         <span class="firefox_android yes"><span>Firefox for Android</span><span>44+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
+         <span class="firefox_android yes"><span>Firefox for Android</span><span>41+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>11.3+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>40+</span></span><span class="webview_android yes"><span>Android WebView</span><span>40+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>4.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>27+</span></span>
         </div>
        </div>
       </div>
@@ -10736,7 +10738,7 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/foo/ba
      <li><span class="dfn-paneled" id="term-for-dom-document-visibilitystate">visibilityState</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[push]</a> defines the following terms:
+    <a data-link-type="biblio">[PUSH]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-h-the-push-event">push</span>
     </ul>
@@ -12065,17 +12067,14 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/foo/ba
    <ul>
     <li><a href="#ref-for-service-worker-container-message-event">2.1.2. Events</a>
     <li><a href="#ref-for-service-worker-container-message-event①">3.4.7. Event handlers</a>
-    <li><a href="#ref-for-service-worker-container-message-event②">4.6. ExtendableMessageEvent</a> <a href="#ref-for-service-worker-container-message-event③">(2)</a>
+    <li><a href="#ref-for-service-worker-container-message-event②">4.1.5. Event handlers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-worker-container-messageerror-event">
    <b><a href="#service-worker-container-messageerror-event">#service-worker-container-messageerror-event</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-service-worker-container-messageerror-event">2.1.2. Events</a>
-    <li><a href="#ref-for-service-worker-container-messageerror-event①">3.1.5. postMessage(message, options)</a>
-    <li><a href="#ref-for-service-worker-container-messageerror-event②">3.4.7. Event handlers</a>
-    <li><a href="#ref-for-service-worker-container-messageerror-event③">4.1.5. Event handlers</a>
-    <li><a href="#ref-for-service-worker-container-messageerror-event④">4.2.6. postMessage(message, options)</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event">3.4.7. Event handlers</a>
+    <li><a href="#ref-for-service-worker-container-messageerror-event①">4.2.6. postMessage(message, options)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="navigationpreloadmanager">
@@ -12736,7 +12735,15 @@ navigator<c- p>.</c->serviceWorker<c- p>.</c->register<c- p>(</c-><c- u>"/foo/ba
    <b><a href="#eventdef-serviceworkerglobalscope-message">#eventdef-serviceworkerglobalscope-message</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message">3.1.5. postMessage(message, options)</a>
-    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message①">4.1.5. Event handlers</a>
+    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-message①">4.6. ExtendableMessageEvent</a> <a href="#ref-for-eventdef-serviceworkerglobalscope-message②">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="eventdef-serviceworkerglobalscope-messageerror">
+   <b><a href="#eventdef-serviceworkerglobalscope-messageerror">#eventdef-serviceworkerglobalscope-messageerror</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-messageerror">2.1.2. Events</a>
+    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-messageerror①">3.1.5. postMessage(message, options)</a>
+    <li><a href="#ref-for-eventdef-serviceworkerglobalscope-messageerror②">4.1.5. Event handlers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dfn-request-response-list">
